@@ -1,1 +1,101 @@
+import math
 
+
+def count_digits_loop(n):
+    n = abs(n)
+    if n == 0:
+        return 1
+    count = 0
+    while n > 0:
+        n //= 10
+        count += 1
+    return count
+
+
+def count_digits_log(n):
+    n = abs(n)
+    if n == 0:
+        return 1
+    return int(math.log10(n)) + 1
+
+
+def count_dividing_digits(n):
+    original = n
+    count = 0
+    while n > 0:
+        digit = n % 10
+        if digit != 0 and original % digit == 0:
+            count += 1
+        n //= 10
+    return count
+
+
+def reverse_number(n):
+    rev = 0
+    while n != 0:
+        digit = n % 10
+        rev = rev * 10 + digit
+        n //= 10
+    return rev
+
+
+def is_palindrome(n):
+    return n == reverse_number(n)
+
+
+def divisors_simple(n):
+    result = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            result.append(i)
+    return result
+
+
+def divisors_sqrt(n):
+    result = []
+    for i in range(1, math.isqrt(n) + 1):
+        if n % i == 0:
+            result.append(i)
+            if n // i != i:
+                result.append(n // i)
+    result.sort()
+    return result
+
+
+def gcd(a, b):
+    while a > 0 and b > 0:
+        if a > b:
+            a = a % b
+        else:
+            b = b % a
+    return a + b
+
+
+def gcd_recursive(a, b):
+    if b == 0:
+        return a
+    return gcd_recursive(b, a % b)
+
+
+def lcm(a, b):
+    return a // gcd(a, b) * b
+
+
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+
+
+if __name__ == "__main__":
+    print("Count digits (loop) of -1234 :", count_digits_loop(-1234))
+    print("Count digits (log10) of 1234 :", count_digits_log(1234))
+    print("Digits of 1012 that divide it :", count_dividing_digits(1012))
+    print("Reverse of 1234 :", reverse_number(1234))
+    print("Is 121 a palindrome :", is_palindrome(121))
+    print("Divisors of 12 (simple) :", divisors_simple(12))
+    print("Divisors of 36 (sqrt) :", divisors_sqrt(36))
+    print("GCD of 52 and 10 :", gcd(52, 10))
+    print("GCD recursive of 252 and 105 :", gcd_recursive(252, 105))
+    print("LCM of 4 and 6 :", lcm(4, 6))
+    print("Factorial of 5 :", factorial(5))
