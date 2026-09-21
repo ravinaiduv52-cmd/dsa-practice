@@ -1,0 +1,33 @@
+# dsa-practice
+name = input("Enter your name : ")
+new_n = []
+
+
+def print_name():
+    if len(new_n) >= 5:
+        return None
+    new_n.append(name)
+    print_name()
+
+
+def print_ascending(i, n):
+    if i > n:
+        return None
+    print(i, end=" ")
+    print_ascending(i + 1, n)
+
+
+def print_descending(n, i):
+    if n < i:
+        return None
+    print(n, end=" ")
+    print_descending(n - 1, i)
+
+
+print_name()
+print(new_n)
+
+num = int(input("Enter number to be ended : "))
+print_ascending(1, num)
+print()
+print_descending(num, 1)
