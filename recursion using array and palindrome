@@ -1,0 +1,26 @@
+def reverse_array(i, n, arr):
+    if i >= n-i-1:
+        return arr
+    arr[i], arr[n-i-1] = arr[n-i-1], arr[i]
+    return reverse_array(i+1, n, arr)
+
+def is_palindrome(i, n, arr):
+    if i >= n-i-1:
+        print("Palindrome")
+        return True
+    elif arr[i] != arr[n-i-1]:
+        print("Not a palindrome")
+        return False
+    return is_palindrome(i+1, n, arr)
+
+arr1 = [1, 2, 3, 4, 2]
+print(reverse_array(0, 5, arr1))
+
+arr2 = [10, 20, 30, 40, 50, 60]
+print(reverse_array(0, 6, arr2))
+
+arr3 = [5, 1, 8, 3, 9, 2, 7]
+print(reverse_array(0, 7, arr3))
+
+arr4 = ["m", "a", "d", "a", "m"]
+print(is_palindrome(0, 5, arr4))
