@@ -1,0 +1,89 @@
+def print_name(i, n, name):
+    if i > n:
+        return
+    print(name)
+    print_name(i + 1, n, name)
+
+
+def print_1_to_n(i, n):
+    if i > n:
+        return
+    print(i, end=" ")
+    print_1_to_n(i + 1, n)
+
+
+def print_n_to_1(n):
+    if n < 1:
+        return
+    print(n, end=" ")
+    print_n_to_1(n - 1)
+
+
+def sum_of_n(n):
+    if n == 0:
+        return 0
+    return n + sum_of_n(n - 1)
+
+
+def factorial(n):
+    if n <= 1:
+        return 1
+    return n * factorial(n - 1)
+
+
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+def reverse_array(arr, i):
+    n = len(arr)
+    if i >= n - i - 1:
+        return
+    arr[i], arr[n - i - 1] = arr[n - i - 1], arr[i]
+    reverse_array(arr, i + 1)
+
+
+def is_palindrome(s, i):
+    if i >= len(s) // 2:
+        return True
+    if s[i] != s[len(s) - i - 1]:
+        return False
+    return is_palindrome(s, i + 1)
+
+
+def power(base, exp):
+    if exp == 0:
+        return 1
+    return base * power(base, exp - 1)
+
+
+def digit_sum(n):
+    if n == 0:
+        return 0
+    return n % 10 + digit_sum(n // 10)
+
+
+if __name__ == "__main__":
+    print_name(1, 5, "Raj")
+
+    print_1_to_n(1, 5)
+    print()
+
+    print_n_to_1(5)
+    print()
+
+    print("Sum of 5:", sum_of_n(5))
+    print("Factorial of 5:", factorial(5))
+    print("Fibonacci of 6:", fibonacci(6))
+
+    nums = [1, 2, 3, 4, 5]
+    reverse_array(nums, 0)
+    print("Reversed:", nums)
+
+    print("madam:", is_palindrome("madam", 0))
+    print("hello:", is_palindrome("hello", 0))
+
+    print("2 power 5:", power(2, 5))
+    print("Digit sum of 1234:", digit_sum(1234))
