@@ -1,0 +1,69 @@
+def func(n,arr):
+    count = 0
+    for i in range(0,len(arr)):
+        if arr[i] == n:
+            count += 1
+    return count
+arr = [1,2,1,3,2]
+print(func(1,arr))
+
+
+def func(char_c,s):
+    count = 0
+    for i in range(0,len(s)):
+        if s[i] == char_c:
+            count += 1
+    return count
+char_c = ["a","b","c","d","e","f","g","h","i","g"]
+print(func("g",char_c))
+
+
+arr = [1,2,1,3,2,1]
+freq = {}
+for num in arr:
+    if num in freq:
+        freq[num] += 1
+    else:
+        freq[num] = 1
+print(freq)
+
+
+arr = [1,2,1,3,2,1]
+d = {}
+for num in arr:
+    if num in d:
+        d[num] += 1
+    else :
+        d[num] = 1
+print(d)
+
+
+strings = ["a","b","c","d","e","f","b","a"]
+di = {}
+for letter in strings:
+    if letter in di:
+        di[letter] += 1
+    else :
+        di[letter] = 1
+print(di)
+
+
+arr = [1,2,2,2]
+max_freq = 0
+highest = {}
+low_freq = len(arr)
+for num in arr:
+    if num in highest:
+        highest[num] += 1
+    else :
+        highest[num] = 1
+for num,count in highest.items():
+    if count > max_freq:
+        max_freq = count
+        max_num = num
+    if count < low_freq  :
+        low_freq = count
+        low_num = num
+print(max_num)
+print(low_num)
+print(highest)
