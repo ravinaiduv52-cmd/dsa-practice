@@ -1,0 +1,9 @@
+class Solution:
+    def largestElement(self, nums):
+        largest = float('-inf')
+        for x in nums:
+            if x > largest:
+                largest = x
+        if largest == float('-inf'):
+            return -1
+        return largest
