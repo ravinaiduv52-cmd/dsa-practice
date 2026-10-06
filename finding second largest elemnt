@@ -1,0 +1,13 @@
+class Solution:
+    def secondLargestElement(self, nums):
+        largest = float('-inf')
+        second_l = float('-inf')
+        for x in nums:
+            if x > largest:
+                largest = x
+        for x in nums:
+            if x > second_l and x != largest:
+                second_l = x
+        if second_l == float('-inf'):
+            return -1
+        return second_l
