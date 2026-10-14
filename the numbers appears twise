@@ -1,0 +1,11 @@
+class Solution:
+    def singleNumber(self, nums):
+        #your code goes here
+        for i in range(0,n):
+            number = nums[i]
+            count = 0
+            for j in range(0,n):
+                if nums[j] == number:
+                    count += 1
+            if count == 1:
+                return number
