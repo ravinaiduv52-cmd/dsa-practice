@@ -1,0 +1,16 @@
+class Solution:
+    def longestSubarray(self, arr, k):  
+        # code here
+        s = 0
+        PreSum = {}
+        max_len = 0
+        for i in range(len(arr)):
+            s += arr[i]
+            if s == k:
+                max_len = max(max_len, i+1)
+            rem = s - k
+            if rem in PreSum:
+                max_len = max(max_len,i - PreSum[rem])
+            if s not in PreSum:
+                PreSum[s] = i
+        return max_len
