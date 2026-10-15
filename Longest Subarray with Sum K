@@ -1,0 +1,13 @@
+class Solution:
+    def longestSubarray(self, arr, k):  
+        # code here
+        leng = 0
+        n = len(arr)
+        for i in range(0,n):
+            for j in range(i,n):
+                s = 0
+                for a in range(i,j+1):
+                    s += arr[a]
+                if s == k:
+                    leng = max(leng,j-i+1)
+        return leng
