@@ -1,0 +1,14 @@
+def read(n: int, book: [int], target: int) -> str:
+    # Write your code here.
+    left = 0
+    book.sort()
+    right = n-1
+    while left < right:
+        addi = book[left] + book[right]
+        if addi > target :
+            right -= 1
+        elif addi < target:
+            left += 1
+        elif addi == target:
+            return "YES"
+    return "NO"
