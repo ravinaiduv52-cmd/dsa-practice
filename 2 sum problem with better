@@ -1,0 +1,14 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        n = len(nums)
+        app = {}
+        for i in range(0,n):
+            a = nums[i]
+            more = target - a
+            if more in app:
+                return [app[more] , i ]
+            app[a] = i
+        return [-1,-1]
+            
+
+        
