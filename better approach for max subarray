@@ -1,0 +1,11 @@
+class Solution(object):
+    def maxSubArray(self, nums):
+        maxi = nums[0]
+        n = len(nums)
+        for i in range(0,n):
+            sumi = 0
+            for j in range(i,n):
+                sumi += nums[j]
+                maxi = max(sumi,maxi)
+        return maxi 
+        
