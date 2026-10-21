@@ -1,0 +1,14 @@
+class Solution(object):
+    def rearrangeArray(self, nums):
+        n = len(nums)
+        ans = [0] * n
+        pos_ind = 0
+        neg_ind = 1
+        for x in nums:
+            if x > 0:
+                ans[pos_ind] = x
+                pos_ind += 2
+            else :
+                ans[neg_ind] = x
+                neg_ind += 2
+        return ans
